@@ -1,0 +1,54 @@
+{     
+      "manifest_version": 2,
+      "name": "Python Notebook Viewer",
+      "author": "Rushikesh Tade",
+      "developer": {
+        "name": "Rushikesh Tade",
+        "url": "https://github.com/rushikesh988/"
+      },
+      "version": "0.1",
+      "description": "Helps you view Python Jupyter Notebooks",
+      "homepage_url": "https://github.com/rushikesh988/python-notebook-viewer",
+      "icons": {
+        "256":"icons/icon256.png",
+        "128":"icons/icon128.png",
+        "96": "icons/icon96.png",
+        "64": "icons/icon64.png",
+        "48": "icons/icon48.png",
+        "32": "icons/icon32.png"
+      },
+      
+      
+      "content_scripts": [
+        {
+          "matches": ["file:///*.ipynb","file:///*.IPYNB"],
+          "js": [
+            "js/ansi_up.min.js",
+            "js/es5-shim.min.js",
+            "js/katex.min.js",
+            "js/katex-auto-render.min.js",
+            "js/marked.min.js",
+            "js/prism.min.js",
+            "js/notebook.min.js",
+            "renderer.js"
+          ],
+          "css": ["css/prism.css","css/notebook.css","css/katex.min.css"]
+
+        }
+      ],
+
+      "web_accessible_resources": ["icons/icon256.png"],
+      
+      "permissions": [
+        "tabs",
+        "activeTab"
+      ],
+
+      "applications": {
+        "gecko": {
+           "id": "rushikesh988-5@gmail.com"
+        }
+     }
+
+     
+    }
