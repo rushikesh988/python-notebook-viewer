@@ -2,10 +2,17 @@ var notebookJSON=JSON.parse(document.body.textContent) // read document content 
 var notebook = nb.parse(notebookJSON); // parse it to Notebook.js format
 var rendered = notebook.render(); // render it into HTML . rendered is a string containing html 
 
-// remove contents from current page/tab
+//Clear Document 
 document.body.textContent="" 
 document.body.innerHTML=""
 document.body.outerHTML=""
+
+// Create Favicon for Tab
+var linkElement=document.createElement("link")
+linkElement.setAttribute("href",browser.extension.getURL("icons/icon256.png"))
+linkElement.setAttribute("rel","shortcut icon")
+linkElement.setAttribute("type","image/x-icon")
+document.head.appendChild(linkElement)
 
 //add plugin logo image to top . This is done by adding image to DOM 
 var logoImage=document.createElement("img")
@@ -64,4 +71,3 @@ document.body.style="background:#f5f2f0;"
 
 //call prism for Highlighting of code
 Prism.highlightAll();
-
