@@ -8,7 +8,7 @@ document.body.innerHTML=""
 document.body.outerHTML=""
 
 // Set title.
-document.title = window.location.pathname.split('/').pop()
+document.title = decodeURI(window.location.pathname.split('/').pop())
 
 // Create Favicon for Tab
 var linkElement=document.createElement("link")
